@@ -23,31 +23,31 @@
  si oui, j'affiche les infos à l'intérieur
  
 -->
-	<?php if (array_key_exists("order", $_SESSION)) { ?>
-		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
-	<?php } ?>
+<p><?php echo $message; ?></p>
 
+<?php if ($orderByUser) {?>
+	<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+<?php } ?>
 
+<form method="POST" >
 
-		<form method="POST" >
+	<label for="quantity">Quantity
+		<input type="number" name="quantity" />
+	</label>
 
-			<label for="quantity">Quantity
-				<input type="number" name="quantity" />
-			</label>
+	<label for="product">
+		<select name="product">
+			<?php foreach ($products as $product) { ?>
+				<option value="<?php echo $product; ?>"><?php echo $product; ?></option>
+			<?php } ?>
+		</select>
+	</label>
 
-			<label for="product">
-				<select name="product">
-					<option value="teeshirt_mario">Teeshirt Mario</option>
-					<option value="teeshirt_hello_kitty">Teeshirt Hello Kitty</option>
-					<option value="teeshirt_gta">Teeshirt GTA</option>
-				</select>
-			</label>
+	<button type="submit">Créer la commande</button>
 
-			<button type="submit">Créer la commande</button>
+</form>
 
-		</form>
-
-	</main>
+</main>
 
 </body>
 </html>

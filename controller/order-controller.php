@@ -6,14 +6,24 @@ require_once('../model/order-repository.php');
 
 session_start();
 
+$message = " ";
+
 if (array_key_exists("quantity", $_POST) && 
 	array_key_exists("product", $_POST))
 {
 	$order = createOrder($_POST['product'], $_POST['quantity']);
-	saveOrder($order);
+
+	if ($order){
+		// je l'enregistre dans la session
+		saveOrder($order);
+	} else {
+		$message = "Impossible de créer la commande";
+	}
 }
 
 $orderByUser = findOrderByUser();
+$orderForUser = findOrderForUser();
+
 
 require_once('../view/create-order.view.php');
 
