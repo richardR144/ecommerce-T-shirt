@@ -17,37 +17,35 @@
 
 	</header>
 
+
 	<main>
 
-<!-- je regarde s'il y une clé order dans mon espace de stockage de session sur le serveur
- si oui, j'affiche les infos à l'intérieur
- 
--->
-<p><?php echo $message; ?></p>
+	<p><?php echo $message; ?></p>
 
-<?php if ($orderByUser) {?>
-	<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
-<?php } ?>
+		<?php if ($orderByUser) {?>
+			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+			<p>Créée le <?php echo $orderByUser['createdAt']->format('y-m-d'); ?></p>
+		<?php } ?>
 
-<form method="POST" >
+		<form method="POST" >
 
-	<label for="quantity">Quantity
-		<input type="number" name="quantity" />
-	</label>
+			<label for="quantity">Quantity
+				<input type="number" name="quantity" />
+			</label>
 
-	<label for="product">
-		<select name="product">
-			<?php foreach ($products as $product) { ?>
-				<option value="<?php echo $product; ?>"><?php echo $product; ?></option>
-			<?php } ?>
-		</select>
-	</label>
+			<label for="product">
+				<select name="product">
+					<?php foreach ($products as $product) { ?>
+						<option value="<?php echo $product; ?>"><?php echo $product; ?></option>
+					<?php } ?>
+				</select>
+			</label>
 
-	<button type="submit">Créer la commande</button>
+			<button type="submit">Créer la commande</button>
 
-</form>
+		</form>
 
-</main>
+	</main>
 
 </body>
 </html>
