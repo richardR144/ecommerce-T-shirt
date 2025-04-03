@@ -31,15 +31,17 @@ function createOrder($product, $quantity) {
 	if ($quantity < 0 || $quantity > 3) {
 		// je renvoie false si la quantité est inférieure à 0 ou supérieure à 3
 		return false;
-		// sinon, je renvoie un tableau contenant le produit et la quantité
+		// sinon, je renvoie un tableau contenant le produit, la quantité et la date de création de la commande
 	} else {
 		$order = [
 			"product" => $product,
-			"quantity" => $quantity
+			"quantity" => $quantity,
+			"createdAt" => new DateTime("Y-m-d H:i:s")
 		];
 	
 		return $order;
 	}
+	
 }
 
 
