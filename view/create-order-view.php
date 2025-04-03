@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="../assets/style.css">
+	<title>mvc ecommerce-T-shirt</title>
 </head>
 <body>
 
@@ -17,26 +18,26 @@
 
 	</header>
 
-
 	<main>
+		<p><?php echo $message; ?></p>
 
-	<p><?php echo $message; ?></p>
-
-		<?php if ($orderByUser) {?>
+		<?php 
+		if ($orderByUser) {?>
 			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
 			<!--j'utilise la méthode format de l'objet DateTime pour formater la date mais je peux ne rien mettre et dans ce cas, il prendra la date du jour-->
 	    	<p>Créée le <?php echo $orderByUser['createdAt']->format('d-m-Y'); ?></p>
+			
 		<?php } ?>
 
 		<form method="POST" >
-
 			<label for="quantity">Quantity
 				<input type="number" name="quantity" />
 			</label>
 
-			<label for="product">
+			<label for="product">Produit
 				<select name="product">
-					<?php foreach ($products as $product) { ?>
+					<?php 
+					foreach ($products as $product) { ?>
 						<option value="<?php echo $product; ?>"><?php echo $product; ?></option>
 					<?php } ?>
 				</select>

@@ -1,7 +1,7 @@
 <?php	
 
 
-//SELECT * FROM order where user-id = 1
+//SELECT * FROM order where user-id = 1 (SQL)
 //je créais une fonction pour créer une commande
 function findOrderByUser() {
     //je regarde s'il y une clé order dans mon espace de stockage de session sur le serveur
@@ -30,19 +30,20 @@ function createOrder($product, $quantity) {
 // je vérifie que le produit existe dans ma liste de produits
 	if ($quantity < 0) {
 		// je lève une exception si la quantité est supérieur à 0 
-		throw new Exception("La quantité doit être supérieur à 0");
+		throw new Exception("Interdiction de mettre un produit inférieur à 0");
 		// sinon, je renvoie un tableau contenant le produit, la quantité et la date de création de la commande
 		//sinon si la quantité est supérieur à 3
 	} else if ($quantity > 3) {
 		// je lève une exception si la quantité est supérieur à 3
-		throw new Exception("La quantité doit être inférieur à 3");
+		throw new Exception("Interdiction de mettre un produit supérieur à 3");
 	} else {
 		//structure de commande qui regroupent les infos de produit, quantité et date de création
 		//je crée un tableau associatif qui contient les informations de la commande
 		$order = [
 			"product" => $product,
 			"quantity" => $quantity,
-			"createdAt" => new DateTime("Y-m-d H:i:s")  //structure de commande
+			"createdAt" => new DateTime("Y-m-d H:i:s")
+			
 		];
 	
 		return $order;
@@ -51,7 +52,7 @@ function createOrder($product, $quantity) {
 }
 
 
-//INSERT INTO order VALUES ($order, [product]), ($order, [$quantity]);
+//INSERT INTO order VALUES ($order, [product]), ($order, [$quantity]);  (SQL)
 // je l'enregistre dans la session
 // je créais une fonction pour créer une commande
 // je lui passe en paramètre le produit et la quantité

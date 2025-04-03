@@ -16,10 +16,12 @@ if (array_key_exists("quantity", $_POST) &&
 	try {
 		$order = createOrder($_POST['product'], $_POST['quantity']);
 		saveOrder($order);
-// je renvoie un message de succès
-	} catch(Exception $e) {
+// je renvoie un "message d'erreur";
+	} 
+	catch(Exception $e) {
 		$message = $e->getMessage();
-	}
+	} 
+	
 	
 
 }
