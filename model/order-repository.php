@@ -28,15 +28,21 @@ function findOrderForUser(){
 // je lui passe en paramètre le produit et la quantité
 function createOrder($product, $quantity) {
 // je vérifie que le produit existe dans ma liste de produits
-	if ($quantity < 0 || $quantity > 3) {
-		// je renvoie false si la quantité est inférieure à 0 ou supérieure à 3
-		return false;
+	if ($quantity < 0) {
+		// je renvoie une exception si la quantité est supérieur à 0 
+		throw new Exception("La quantité doit être supérieur à 0");
 		// sinon, je renvoie un tableau contenant le produit, la quantité et la date de création de la commande
+		//sinon si la quantité est supérieur à 3
+	} else if ($quantity > 3) {
+		// je renvoie une exception si la quantité est supérieur à 3
+		throw new Exception("La quantité doit être inférieur à 3");
 	} else {
+		//structure de commande qui regroupent les infos de produit, quantité et date de création
+		//je crée un tableau associatif qui contient les informations de la commande
 		$order = [
 			"product" => $product,
 			"quantity" => $quantity,
-			"createdAt" => new DateTime("Y-m-d H:i:s")
+			"createdAt" => new DateTime("Y-m-d H:i:s")  //structure de commande
 		];
 	
 		return $order;

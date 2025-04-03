@@ -4,21 +4,24 @@ require_once('../config.php');
 require_once('../model/product-repository.php');
 require_once('../model/order-repository.php');
 
+
 session_start();
 
 $message = " ";
 
 if (array_key_exists("quantity", $_POST) && 
-	array_key_exists("product", $_POST)) 
+	array_key_exists("product", $_POST))
 {
-	$order = createOrder($_POST['product'], $_POST['quantity']);
-
-	if ($order){
-		// je l'enregistre dans la session
+// je vérifie que la quantité est bien renseignée et que le produit est bien sélectionné
+	try {
+		$order = createOrder($_POST['product'], $_POST['quantity']);
 		saveOrder($order);
-	} else {
-		$message = "Impossible de créer la commande";
+// je renvoie un message de succès
+	} catch(Exception $e) {
+		$message = $e->getMessage();
 	}
+	
+
 }
 
 $orderByUser = findOrderByUser();
