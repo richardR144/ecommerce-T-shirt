@@ -9,7 +9,7 @@ session_start();
 $message = " ";
 
 if (array_key_exists("quantity", $_POST) && 
-	array_key_exists("product", $_POST))
+	array_key_exists("product", $_POST)) 
 {
 	$order = createOrder($_POST['product'], $_POST['quantity']);
 
