@@ -27,9 +27,11 @@ function findOrderForUser(){
  //je créais une fonction pour créer une commande
 // je lui passe en paramètre le produit et la quantité
 function createOrder($product, $quantity) {
-
+// je vérifie que le produit existe dans ma liste de produits
 	if ($quantity < 0 || $quantity > 3) {
+		// je renvoie false si la quantité est inférieure à 0 ou supérieure à 3
 		return false;
+		// sinon, je renvoie un tableau contenant le produit et la quantité
 	} else {
 		$order = [
 			"product" => $product,
