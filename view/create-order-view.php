@@ -24,7 +24,7 @@
 
 		<?php if ($orderByUser) {?>
 			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
-			<!--j'utilise la méthode format de l'objet DateTime pour formater la date-->
+			<!--j'utilise la méthode format de l'objet DateTime pour formater la date mais je peux ne rien mettre et dans ce cas, il prendra la date du jour-->
 	    	<p>Créée le <?php echo $orderByUser['createdAt']->format('d-m-Y'); ?></p>
 		<?php } ?>
 
