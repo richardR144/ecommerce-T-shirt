@@ -11,6 +11,7 @@
 	<header>
 
 		<nav>
+			<!-- je vais créer un menu de navigation pour accéder aux différentes pages de l'application -->
 			<ul>
 				<li><a href="http://localhost:8080/ecommerce-T-shirt/controller/create-order-controller.php">Créer une commande</a></li>
 				<li><a href="http://localhost:8080/ecommerce-T-shirt/controller/pay-order-controller.php">Payer la commande</a></li>

@@ -8,7 +8,8 @@ require_once('../model/order-repository.php');
 session_start();
 
 $message = " ";
-
+// je vais créer une commande, je vais donc vérifier que l'utilisateur a bien sélectionné un produit et une quantité
+// je vais donc créer une commande avec le produit et la quantité sélectionnée
 if (array_key_exists("quantity", $_POST) && 
 	array_key_exists("product", $_POST))
 {
