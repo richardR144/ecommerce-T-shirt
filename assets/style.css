@@ -36,11 +36,10 @@ label{
     color: violet;
 }
 
-submit{
+button{
     background-color: violet;
-    color: white;
     font-size: 20px;
     border-radius: 5px;
     padding: 10px 20px;
-    cursor: pointer;
+    color: white;
 }

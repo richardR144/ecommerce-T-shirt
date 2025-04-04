@@ -30,7 +30,7 @@ $orderByUser = findOrderByUser();
 $orderForUser = findOrderForUser();
 
 
-require_once('../view/create-order.view.php');
+require_once('../view/create-order-view.php');
 
 // le controleur : 
 
