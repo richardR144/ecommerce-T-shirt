@@ -42,7 +42,7 @@ function createOrder($product, $quantity) {
 		$order = [
 			"product" => $product,
 			"quantity" => $quantity,
-			"createdAt" => new DateTime("Y-m-d H:i:s"),
+			"createdAt" => new DateTime("now"),
 			"status" => "CART"
 		];
 	
