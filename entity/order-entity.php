@@ -1,5 +1,15 @@
 <?php
 
+require_once('../model/order-controller.php');
+require_once('../model/order-repository.php');
+require_once('../view/pay-order-view.php');
+require_once('../config/config.php');
+require_once('../model/product-entity.php');
+require_once('../view/Partial/_header.php');
+require_once('../view/Partial/_footer.php');
+     
+
+
 class Order {
     // je crée une classe Order qui va représenter une commande
     // je lui passe en paramètre le produit, la quantité et la date de création de la commande
